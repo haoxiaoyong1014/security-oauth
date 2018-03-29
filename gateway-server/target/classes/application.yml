@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: gateway-server
+server:
+  port: 8881
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8880/eureka/
+zuul:
+  routes:
+    company-api:
+      serviceId: company-api
+      path: /**
+    oauth-server:
+      serviceId: oauth-server
+      path: /**
+  sensitiveHeaders: Cookie,Set-Cookie
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8881/oauth/token
+      user-authorization-uri: http://localhost:8881/oauth/authorize
+      client-id: webapp
+    resource:
+      user-info-uri: http://localhost:8881/user
+      prefer-token-info: false

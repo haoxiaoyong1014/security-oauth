@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: company-api
+  datasource:
+    url: jdbc:mysql://115.29.32.62:3306/ec2?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 7d428bc667
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8882
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8880/eureka/
+security:
+  oauth2:
+    resource:
+      id: company-api
+      user-info-uri: http://localhost:8881/user
+      prefer-token-info: false
