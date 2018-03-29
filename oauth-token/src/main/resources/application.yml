@@ -2,9 +2,9 @@ spring:
   application:
     name: oauth-server
   datasource:
-    url: jdbc:mysql://115.29.32.62:3306/ec2?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 7d428bc667
+    url:
+    username:
+    password:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
 server:
